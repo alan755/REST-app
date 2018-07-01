@@ -9,13 +9,12 @@ router.get('/person', (req, res) => {
 
 
 router.post('/person', (req, res) => {
-Person.create(req.body).then((person) => {
-  res.send(person)
-})                                          //var person = new Person(req.body) 
-                                           //person.save()
-  res.send({name: req.body.name})    
-})
-  
+  Person.create(req.body).then((person) => {
+    res.send(person)
+  }) 
+})                                       
+//var person = new Person(req.body) 
+//person.save()
 
 router.put('/person/:id', (req, res) => {
   res.send({name: 'PUT'})    
@@ -27,4 +26,3 @@ router.delete('/person/:id', (req, res) => {
 
 module.exports = router
 
-  
