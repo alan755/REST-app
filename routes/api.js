@@ -1,4 +1,5 @@
 const express = require('express')
+const Person = require('../models/person')
 
 var router = express.Router()
 
@@ -8,7 +9,11 @@ router.get('/person', (req, res) => {
 
 
 router.post('/person', (req, res) => {
-  res.send({name: 'POST'})    
+Person.create(req.body).then((person) => {
+  res.send(person)
+})                                          //var person = new Person(req.body) 
+                                           //person.save()
+  res.send({name: req.body.name})    
 })
   
 
