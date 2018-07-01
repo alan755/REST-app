@@ -1,2 +1,2 @@
 # REST-app
-Created while learning concepts of RESTApi and MongoDB
+A CRUD app created while learning concepts of REST-Api and MongoDB.
