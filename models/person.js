@@ -16,6 +16,6 @@ const personschema = new schema({
   }
 })
 
-const Ninja = mongoose.model('person', personschema)
+const Person = mongoose.model('person', personschema)
 
-module.exports = Ninja
+module.exports = Person
