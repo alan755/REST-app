@@ -8,7 +8,7 @@ router.get('/person', (req, res, next) => {
 })
 
 
-router.post('/person', (req, res, next) => {
+router.post('/person', (req, res,next) => {
   Person.create(req.body).then((person) => {
     res.send(person)
   }).catch(next) 
@@ -20,8 +20,11 @@ router.put('/person/:id', (req, res, next) => {
   res.send({name: 'PUT'})    
 })
   
-router.delete('/person/:id', (req, res, next) => {
-  res.send({name: 'DELETE'})    
+router.delete('/person/:id', (req, res,next) => {
+  //res.send({name: 'DELETE'})
+  Person.findByIdAndRemove({_id: req.params.id}).then((person) => {
+    res.send(person)
+  })
 })
 
 module.exports = router
