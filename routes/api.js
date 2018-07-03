@@ -17,10 +17,15 @@ router.post('/person', (req, res,next) => {
 //person.save()
 
 router.put('/person/:id', (req, res, next) => {
-  res.send({name: 'PUT'})    
+  //res.send({name: 'PUT'})
+  Person.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
+    Person.findOne({_id:req.params.id}).then((person) => {
+      res.send(person)
+    })
+  })    
 })
   
-router.delete('/person/:id', (req, res,next) => {
+router.delete('/person/:id', (req, res, next) => {
   //res.send({name: 'DELETE'})
   Person.findByIdAndRemove({_id: req.params.id}).then((person) => {
     res.send(person)
